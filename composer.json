@@ -1,0 +1,13 @@
+{
+	"name": "e02/frases",
+	"type": "project",
+	"description": "E02: Creació de l'entorn de treball amb Doctrine",
+	"require": {
+		"doctrine/orm": "*",
+		"symfony/cache": "*",
+		"doctrine/annotations": "*"
+	},
+	"autoload": {
+		"psr-0": { "": "src/" }
+	}
+}
