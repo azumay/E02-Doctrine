@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping\Index;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Column;
-use DoctrineORMMapping as ORM; 
+use Doctrine\ORM\Mapping as ORM; 
 
 /**
 * Frase
