@@ -47,87 +47,105 @@ class Frase {
     private $temas;
 
 
-	
+ /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->temas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
-//     /**
-//      * Get id
-//      *
-//      * @return integer 
-//      */
-//     public function getId()
-//     {
-//         return $this->id;
-//     }
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-//     /**
-//      * Set texto
-//      *
-//      * @param string $texto
-//      * 
-//      */
-//     public function setTexto($texto)
-//     {
-//         $this->texto = $texto;
+    /**
+     * Set texto.
+     *
+     * @param string $texto
+     *
+     * @return Frase
+     */
+    public function setTexto($texto)
+    {
+        $this->texto = $texto;
 
-//         return $this;
-//     }
+        return $this;
+    }
 
-    
-//     /**
-//      * Set autorId.
-//      *
-//      * @param int $autorId
-//      *
-//      * @return Frase
-//      */
-//     public function setAutorId($autorId)
-//     {
-//         $this->autor_id = $autorId;
+    /**
+     * Get texto.
+     *
+     * @return string
+     */
+    public function getTexto()
+    {
+        return $this->texto;
+    }
 
-//         return $this;
-//     }
+    /**
+     * Set autor.
+     *
+     * @param \Thos\Autor|null $autor
+     *
+     * @return Frase
+     */
+    public function setAutor(\Thos\Autor $autor = null)
+    {
+        $this->autor = $autor;
 
-//     /**
-//      * Get autorId.
-//      *
-//      * @return int
-//      */
-//     public function getAutorId()
-//     {
-//         return $this->autor_id;
-//     }
+        return $this;
+    }
 
-//     /**
-//      * Get texto.
-//      *
-//      * @return \varchar
-//      */
-//     public function getTexto()
-//     {
-//         return $this->texto;
-//     }
+    /**
+     * Get autor.
+     *
+     * @return \Thos\Autor|null
+     */
+    public function getAutor()
+    {
+        return $this->autor;
+    }
 
-//     /**
-//      * Set autor.
-//      *
-//      * @param int $autor
-//      *
-//      * @return Frase
-//      */
-//     public function setAutor($autor)
-//     {
-//         $this->autor = $autor;
+    /**
+     * Add tema.
+     *
+     * @param \Thos\Tema $tema
+     *
+     * @return Frase
+     */
+    public function addTema(\Thos\Tema $tema)
+    {
+        $this->temas[] = $tema;
 
-//         return $this;
-//     }
+        return $this;
+    }
 
-//     /**
-//      * Get autor.
-//      *
-//      * @return int
-//      */
-//     public function getAutor()
-//     {
-//         return $this->autor;
-//     }
+    /**
+     * Remove tema.
+     *
+     * @param \Thos\Tema $tema
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTema(\Thos\Tema $tema)
+    {
+        return $this->temas->removeElement($tema);
+    }
+
+    /**
+     * Get temas.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTemas()
+    {
+        return $this->temas;
+    }
  }
