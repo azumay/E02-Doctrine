@@ -96,4 +96,4 @@ $entityManager->persist($temaName5);
 $entityManager->flush();
 echo "Created Tema with name: " . $temaName5->getNombre() . "<br>";
 
-//$temes = array("Aprendre","Pensament","Vida","Justícia","Esperança" );
+echo "<a href='E04.php'>Siguiente ejercicio E04</a>";

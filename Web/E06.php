@@ -65,3 +65,5 @@ foreach ($insertFrases as $valor){
 }
 $entityManager->flush();
 
+
+echo "Valores agregados correctamente";

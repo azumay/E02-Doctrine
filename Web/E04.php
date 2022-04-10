@@ -31,3 +31,5 @@ echo "<h1>Query Temas:</h1>";
 echo "<pre>";
 var_dump($queryTemas);
 echo "</pre>";
+
+echo "<a href='E05.php'>Siguiente ejercicio E05</a>";
