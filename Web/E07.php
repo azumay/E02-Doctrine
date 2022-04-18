@@ -59,86 +59,65 @@ function loadingData($fichero)
 
 }
 $datos = '../Datos/frases.xml';
-/*
+
 if (file_exists($datos)) {
-
     if ($contenido = simplexml_load_file($datos)) {
-
         foreach ($contenido->autor as $dataAutor) {
             $mAutor = new Autor();
             $nombreAutor = $dataAutor->nombre->__toString();
             $descAutor = $dataAutor->descripcion->__toString();
-
             $mAutor->setNombre($nombreAutor);
             $mAutor->setDescripcion($descAutor);
-
             $entityManager->persist($mAutor);
-
             foreach ($dataAutor->frases->frase as $dataFrase) {
                 $mFrase = new Frase();
-
                 $fraseAutor = $dataFrase->texto->__toString();
-
                 $mFrase->setTexto($fraseAutor);
                 $mFrase->setAutor($mAutor);
                 $entityManager->persist($mFrase);
-
                 foreach ($dataFrase->tema as $dataTema) {
-
                     $temaAutor = $dataFrase->tema->__toString();
-
                     $existTema = $entityManager->getRepository("Thos\Tema")->findBy(array('nombre' => $temaAutor));
 
-                    if ($existTema == null) {
+                    if (!$existTema ) {
                         $mTema = new Tema();
-
                         $mTema->setNombre($temaAutor);
+                        $mFrase->addTema($mTema);
                         $entityManager->persist($mTema);
-
+                    }else{
+                        $lengthTemas = count($existTema);
+                        for ($i = 0; $i < $lengthTemas; $i++) {
+                            $mFrase->addTema($existTema[$i]);
+                        }
                     }
-                    $lengthTemas = count($existTema);
-
-                    for ($i = 0; $i <p $lengthTemas; $i++) {
-                        $mFrase->addTema($existTema[$i]);
-                    }
-
+                    
                 }
             }
-
             $entityManager->flush();
         }
-
     } else {
         echo "<p class='error'>Error al procesar los datos</p>";
     }
-
 } else {
     echo "<p class='error'>El fichero <b>" . $datos . "</b> no existe, revisa la ruta!</p>";
-
 }
-
 echo "<p class='success'>Los datos han sido agregados correctamente ✅ </p>";
-*/
-
 
 
 $getFrases = $entityManager->getRepository("Thos\Frase")->FindAll();
 
-echo "<h1>Frases</h1>";
-foreach($getFrases as $frase){
-    $textoFrase = "<p class='datosFrase'> <b>Autor: </b>".
-            $frase->getAutor()->getNombre() .
-            "<br> <b>Id:</b> ".
-            $frase->getId() .
-            "<br> <b>Texto:</b> ".
-            $frase->getTexto(); 
-    
-            $temas = $frase ->getTemas();
-        foreach($temas as $temaFrase){
-            $textoFrase .= "<br><b>Tema: </b>". $temaFrase->getNombre(). "</p>";
-        }
-    echo $textoFrase . "<br>";
+foreach ($getFrases as $frase) {
+$textoFrase = "<p class='datosFrase'> <b>Autor: </b>" .
+$frase->getAutor()->getNombre() .
+"<br> <b>Id:</b> " .
+$frase->getId() .
+"<br> <b>Texto:</b> " .
+$frase->getTexto();
+
+$temas = $frase->getTemas();
+foreach ($temas as $temaFrase) {
+$textoFrase .= "<br><b>Tema: </b>" . $temaFrase->getNombre() . "</p>";
 }
-
-
-//echo var_dump($getFrases);
+echo $textoFrase . "<br>";
+}
+ 
