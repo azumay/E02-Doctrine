@@ -35,7 +35,7 @@ class Frase {
 
 	/**
 	 * 
-	 * @Column(type="string", length=250, name="texto")
+	 * @Column(type="text", name="texto")
 	 */
 	private $texto;
 

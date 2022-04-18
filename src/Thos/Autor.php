@@ -34,7 +34,7 @@ class Autor {
 
     /**
 	 * 
-	 * @Column(type="string", length=90, name="descripcion")
+	 * @Column(type="string", length=250, name="descripcion")
 	 */
 	private $descripcion;
 
