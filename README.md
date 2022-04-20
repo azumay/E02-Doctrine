@@ -1,4 +1,5 @@
-
+Ejercicios realizados en mi formación de grado superior en desarrollo de apliciones
+ web.
 ### Objetivo de esta practicas con Doctrine:
 
 - Creación del entorno de trabajo con Doctrine
